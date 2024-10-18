@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/man.css" />
+    <link rel="stylesheet" type="text/css" href="./imagemDeFundo/fundoDaTela.css" />
+    <title>Cadastro</title>
+
+    <!-- Firebase Configuration -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+        import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBz3o1YgacJNA7rJeWhUX7qACEcph0xj6c",
+            authDomain: "devportifolio-ff745.firebaseapp.com",
+            projectId: "devportifolio-ff745",
+            storageBucket: "devportifolio-ff745.appspot.com",
+            messagingSenderId: "935025773642",
+            appId: "1:935025773642:web:adbc4e2ea0c7cc4f7beab3",
+            measurementId: "G-83GH14DCY0"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        const recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {
+            'size': 'invisible',
+            'callback': (response) => {
+                console.log('reCAPTCHA resolvido');
+            }
+        }, auth);
+
+        function enviarCodigoVerificacao(telefone) {
+            signInWithPhoneNumber(auth, telefone, recaptchaVerifier)
+                .then((confirmationResult) => {
+                    const codigoDeVerificacao = prompt('Digite o código de verificação enviado para seu telefone:');
+                    return confirmationResult.confirm(codigoDeVerificacao);
+                })
+                .then((result) => {
+                    console.log('Número verificado com sucesso:', result.user);
+                })
+                .catch((error) => {
+                    console.error('Erro ao verificar o número de telefone:', error);
+                });
+        }
+    </script>
+</head>
+
+
+<body>
+    <canvas id="code-background"></canvas>
+
+    <a href="javascript:history.back()" class="seta-voltar">←</a>
+    <div class="container">
+        <h1>Cadastro</h1>
+        <form>
+            <div class="group-nome">
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+            </div>
+
+            <div class="group-email">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+            </div>
+
+            <div class="group-telefone">
+                <label for="telefone">Celular:</label>
+                <div id="custom-ddd-select" class="custom-ddd-select">
+                    <span id="selected-ddd">DDD</span>
+                    <ul id="ddd-list" class="ddd-list" style="display: none;"></ul>
+                </div>
+                <input type="tel" id="telefone" name="telefone" placeholder="Digite seu numero" required>
+            </div>
+
+            <div>
+                <div id="recaptcha-container"></div>
+
+                <button type="button" id="btn-validar-telefone"
+                    onclick="enviarCodigoVerificacao(document.getElementById('telefone').value)">Validar
+                    Telefone</button>
+            </div>
+
+            <div class="group-senha">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                <label></label>
+                <label for="senha">Confirma Senha:</label>
+                <input type="password" id="confirmaSenha" name="confirmaSenha" placeholder="Digite sua senha" required>
+            </div>
+
+            <div class="group-nascimneto">
+                <label for="data_nascimento">Data de Nascimento:</label>
+                <input type="date" id="data_nascimento" name="data_nascimento" required>
+            </div>
+
+            <div class="groupGenero">
+                <label id="genero">Gênero:</label>
+
+                <label for="masculinoRadio" id="masculinoLabel">
+                    <input type="radio" id="masculinoRadio" name="genero" value="Masculino" required>Masculino
+                </label>
+                <label for="femininoRadio" id="femininoLabel">
+                    <input type="radio" id="femininoRadio" name="genero" value="Feminino" required>Feminino
+                </label>
+            </div>
+
+            <div class="group-pais">
+                <label for="pais">País:</label>
+                <select id="pais" name="pais" required>
+                    <option value="">Selecione um país</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-submit">Enviar</button>
+        </form>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/libphonenumber-js/1.9.47/libphonenumber-js.min.js"></script>
+    <script src="./ImagemDeFundo/fundoDaTela.js"></script>
+    <script src="./JavaScript/paises.js"></script>
+    <script src="./JavaScript/conuntries.js"></script>
+    <script src="./JavaScript/validacaoCampInput.js"></script>
+</body>
+
+</html>
