@@ -4,26 +4,35 @@ const mobileMenu = document.getElementById('mobileMenu');
 
 document.addEventListener("DOMContentLoaded", function() {
     const video = document.getElementById("backgroundVideo");
-    const muteToggleButton = document.getElementById("muteToggleButton");
+    const playPauseButton = document.getElementById("playPauseButton");
 
     video.volume = 0.9;
 
-    muteToggleButton.addEventListener("click", function() {
+    video.addEventListener("click", function() {
         if (video.paused) {
-            video.play().catch(error => {
-                console.log("Erro ao tentar reproduzir o vídeo:", error);
-            });
-        }
-
-        if (video.muted) {
-            video.muted = false;
-            muteToggleButton.textContent = "Desativar Som";
+            video.play();
+            playPauseButton.style.display = "none";
         } else {
-            video.muted = true;
-            muteToggleButton.textContent = "Ativar Som";
+            video.pause();
+            playPauseButton.style.display = "flex";
         }
     });
+
+    playPauseButton.addEventListener("click", function() {
+        if (video.paused) {
+            video.play();
+            playPauseButton.style.display = "none";
+        } else {
+            video.pause();
+            playPauseButton.style.display = "flex";
+        }
+    });
+
+    if (video.paused) {
+        playPauseButton.style.display = "flex";
+    }
 });
+
 
 menuToggle.addEventListener('click', () => {
     mobileMenu.classList.toggle('show');
