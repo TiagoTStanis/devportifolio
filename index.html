@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        < Developer | Tiago />
+    </title>
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/tela.css">
+    <link rel="icon" href="img/terminalIcon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <button id="menuToggle" class="menu-toggle"><i class="fas fa-bars"></i></button>
+        <nav id="desktopMenu" class="desktop-menu">
+            <ul>
+                <li><a href="#home">| Início |</a></li>
+                <li><a href="#about">| Sobre |</a></li>
+                <li><a href="#experience">| Experiência |</a></li>
+                <li><a href="#Project">| Projetos |</a></li>
+                <li><a href="#contact">| Contato |</a></li>
+            </ul>
+        </nav>
+        <nav id="mobileMenu" class="mobile-menu">
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#experience">Experiência</a></li>
+                <li><a href="#Project">Projetos</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="section-home">
+        <video autoplay loop playsinline class="background-video" id="backgroundVideo">
+            <source src="img/apresentacaoHome.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos em HTML5.
+        </video>
+        <div class="container">
+            <h1>Tiago Torres Stanis</h1>
+            <p>Analista de TI | Developer</p>
+            <a href="#Project" class="btn">Veja Meus Projetos</a>
+            <button id="muteToggleButton" class="btn">Play</button>
+        </div>
+    </section>
+
+    <section id="about" class="section-about">
+        <div class="container">
+            <h2>Sobre mim</h2>
+            <p>Sou um profissional apaixonado por programação, com habilidades em Powershell, C#,
+                Java, Python, PHP, JavaScript, HTML5 e CSS3 especialmente na automatização de processos. Minha busca
+                constante por aperfeiçoamento me leva a estudar e dominar novas linguagens de programação, sempre
+                visando entregar soluções eficazes e inovadoras. Estou comprometido em ampliar meu
+                repertório de habilidades e contribuir de forma significativa para projetos desafiadores.</p>
+        </div>
+    </section>
+
+    <section id="Project" class="dynamic-content-section">
+        <div class="container">
+            <h2>Projeto</h2>
+            <div class="recruiter-message">
+                <p>Agradeço por visitar meu portfólio. Possuo experiência e facilidade nas seguintes
+                    linguagens de programação:</p>
+                <br>
+                <div class="skills-icons">
+                    <p><i class="fab fa-html5"></i> HTML5 |</p>
+                    <p><i class="fab fa-css3-alt"></i> CSS3 |</p>
+                    <p><i class="fab fa-js"></i> JavaScript |</p>
+                    <p><i class="fab fa-php"></i> PHP |</p>
+                    <p><i class="fas fa-terminal"></i> PowerShell |</p>
+                    <p><i class="fab fa-windows"></i> C# |</p>
+                    <p><i class="fab fa-java"></i> Java |</p>
+                    <p><i class="fab fa-python"></i> Python</p>
+                </div>
+                <br>
+                <p>Estou constantemente me aprimorando e explorando novas linguagens de programação. Além das
+                    habilidades listadas, tenho facilidade em aprender e aplicar novas tecnologias rapidamente. Em
+                    breve, novos projetos estarão disponíveis aqui, demonstrando meu progresso e dedicação ao
+                    desenvolvimento contínuo.</p>
+            </div>
+
+
+            <div id="contentContainer"></div>
+        </div>
+    </section>
+
+    <section id="experience" class="section-experience">
+        <div class="container">
+            <h2>Experiência</h2>
+
+            <div class="experience-item">
+                <h3>AlliedIT (SEPHORA Brasil)</h3>
+                <p><strong>Analista de T.I</strong> | Março de 2022 - Agosto de 2024</p>
+                <p>Atuando em projetos na área de TI, realizando scripts para instalações em massa no PowerShell,
+                    aplicação para automação de script de switch Cisco e Aruba Access Point feito em C# no Visual
+                    Studio, criação de ISO personalizada do Windows 10, formatando e configurando pendrive bootável para
+                    macOS.</p>
+            </div>
+
+            <div class="experience-item">
+                <h3>Neobpo</h3>
+                <p><strong>Estagiário de TI</strong> | Outubro de 2021 - Dezembro de 2021</p>
+                <p>Realizando suporte aos usuários no nível 1 e 2, troubleshooting na rede da Field, encontrando pontos
+                    sem rede e loops no switch, manutenção de hardware de CPU, notebook, MacBooks, iMac, servidores
+                    Dell, atendimento de service desk e execução de script remotamente em máquinas de colaboradores.</p>
+            </div>
+
+            <div class="experience-item">
+                <h3>Cartório do Jabaquara - 42º Registro Civil</h3>
+                <p><strong>Estagiário de TI</strong> | Novembro de 2020 - Agosto de 2021</p>
+                <p>Suporte N1 e N2 aos funcionários no Windows, manutenção e programação em rotinas de impressoras térmicas e
+                    matriciais, criação de rotinas de troubleshooting para resolução de problemas das impressoras com
+                    SO.</p>
+            </div>
+
+            <div class="experience-item">
+                <h3>Grupo de Apoio ao Paciente Reumático Brasil</h3>
+                <p><strong>Assistente de T.I</strong> | Janeiro de 2020 - Novembro de 2020</p>
+                <p>Prestador de serviços, realizando manutenção do site e mudanças conforme solicitado em WordPress,
+                    melhorias do site através de análises, suporte presencial aos funcionários.</p>
+            </div>
+
+            <div class="experience-item">
+                <h3>Universidade de Mogi das Cruzes</h3>
+                <p><strong>Estagiário de T.I</strong> | Agosto de 2019 - Novembro de 2019</p>
+                <p>Manutenção preventiva dos laboratórios da universidade, suporte a professores e alunos (N1 e N2),
+                    manutenção de pontos de rede e troubleshooting.</p>
+            </div>
+
+            <div class="experience-item">
+                <h3>Spidernet</h3>
+                <p><strong>Estagiário de T.I</strong> | Julho de 2018 - Agosto de 2019</p>
+                <p>Atendimento presencial, suporte técnico, montagem de CPD, criação de rotinas e sistemas em Delphi e
+                    Python, suporte em infra, redes e sistemas para clientes.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <h2>Contato</h2>
+            <div id="contact-container">
+                <p><a href="mailto:ttstanis@outlook.com"><i class="fas fa-envelope"></i> ttstanis@outlook.com</a></p>
+                <p><a href="https://wa.me/5511969006891"><i class="fab fa-whatsapp"></i> (11) 96900-6891</a></p>
+                <p><a href="https://www.linkedin.com/in/tiago-torres-stanis-3728a3196" target="_blank"><i
+                            class="fab fa-linkedin"></i> Tiago Torres Stanis</a></p>
+                <p><a href="https://github.com/TiagoTStanis" target="_blank"><i class="fab fa-github"></i>
+                        TiagoTStanis</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="JS/conectFirebase.js"></script>
+    <script src="JS/index.js"></script>
+</body>
+
+</html>

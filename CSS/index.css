@@ -1,0 +1,382 @@
+/*================= Reset e Estilos Globais =================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fira Code', monospace;
+    background-color: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+.section-home .container p{
+    justify-content: center;
+}
+
+/*================= Container Principal =================*/
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/*================= Cabeçalho =================*/
+header {
+    background-color: #161b22;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+header nav ul li a {
+    color: #58a6ff;
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #79c0ff;
+}
+
+/*================= Seção Home =================*/
+.section-home {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.section-home .container {
+    padding-top: 25%;
+    justify-content: center;
+    text-align: center;
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.section-home h1 {
+    font-size: 3.5rem;
+    color: #58a6ff;
+    border-right: 3px solid #58a6ff;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 2s steps(50, end), blink-caret 1s step-end infinite;
+}
+
+.section-home p {
+    font-size: 1.7rem;
+    margin: 10px 0;
+}
+
+/*================= Botões =================*/
+.btn {
+    font-size: 1.2rem;
+    background-color: transparent;
+    border: 2px solid #58a6ff;
+    color: #58a6ff;
+    padding: 12px 24px;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    box-shadow: 0 0 15px #58a6ff;
+    background-color: #58a6ff;
+    color: #161b22;
+}
+
+/*================= Seções Sobre e Experiência =================*/
+.section-about, .section-experience {
+    padding: 50px 20px;
+}
+
+.section-about h2, .section-experience h2 , .dynamic-content-section h2{
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #58a6ff;
+}
+
+.experience-item, .section-about p, .recruiter-message{
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 2px solid #58a6ff;
+    border-radius: 8px;
+    background-color: #161b22;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.experience-item h3 {
+    font-size: 1.8rem;
+    color: #79c0ff;
+    margin-bottom: 10px;
+}
+
+.experience-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+/*================= Footer =================*/
+footer {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #161b22;
+}
+
+footer h2 {
+    color: #58a6ff;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+footer p, footer a {
+    color: #c9d1d9;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+footer a:hover {
+    color: #58a6ff;
+}
+
+/*================= Content Box =================*/
+.content-box {
+    position: relative;
+    width: 300px;
+    height: 350px;
+    margin: 20px;
+    padding: 25px;
+    border: 2px solid #58a6ff;
+    border-radius: 10px;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    box-shadow: 0px 6px 25px rgba(88, 166, 255, 0.5); 
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-box iframe {
+    width: 100%;
+    max-width: 100%;
+    height: 250px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: none;
+}
+
+.content-box:hover .description-box {
+    transform: scale(1.05);
+    box-shadow: 0px 12px 25px rgba(88, 166, 255, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-box button {
+    background-color: #58a6ff;
+    color: #161b22;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    align-self: center;
+    margin-top: 10px;
+}
+
+.content-box button:hover {
+    background-color: #79c0ff;
+}
+
+.description-box {
+    display: none;
+    position: absolute;
+    width: 220px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    font-size: 0.9rem;
+    overflow-y: auto;
+    max-height: 150px;
+    white-space: normal;
+}
+
+
+.content-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 12px 25px rgba(88, 166, 255, 0.6);
+}
+
+.content-box:hover .description-box {
+    display: block;
+}
+
+.content-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.content-box {
+    width: 300px;
+    height: 350px;
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid #58a6ff;
+    border-radius: 10px;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    box-shadow: 0px 6px 25px rgba(88, 166, 255, 0.5); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.content-box iframe {
+    width: 100%;
+    height: 250px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: none;
+}
+
+.program-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.project-logo {
+    max-width: 100%;
+    max-height: 180px;
+    margin-bottom: 15px;
+}
+
+.download-button {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    align-self: center;
+    margin-top: 10px;
+}
+
+/*================= scrool =================*/
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #161b22;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #58a6ff;
+    border-radius: 4px;
+    border: 2px solid #161b22;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #79c0ff;
+}
+
+/*================= menu =================*/
+.desktop-menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 60px;
+}
+
+.desktop-menu li:hover {
+    transform: scale(1.1);
+    transition: transform 0.6s ease;
+}
+
+/*================= contato =================*/
+#contact-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 1rem;
+    color: #c9d1d9;
+}
+
+/*================= skills =================*/
+.recruiter-message {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #c9d1d9;
+    text-align: center;
+    padding: 15px;
+}
+
+.skills-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.skills-icons p {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    color: #c9d1d9;
+    gap: 20px;
+}
+
+.skills-icons p:hover {
+    transform: scale(1.4);
+    transition: transform 0.6s ease;
+}
+
+.skills-icons i {
+    font-size: 1.5rem;
+    margin-right: 5px;
+    color: #58a6ff;
+}

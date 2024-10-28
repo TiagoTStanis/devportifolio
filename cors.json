@@ -1,0 +1,11 @@
+[
+  {
+    "origin": [
+      /*Colocar link confivavel para acesso aqui*/
+    ],
+    "method": [
+      "GET"
+    ],
+    "maxAgeSeconds": 3600
+  }
+]
