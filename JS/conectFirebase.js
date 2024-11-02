@@ -14,15 +14,10 @@ async function loadDynamicContent() {
     contentContainer.className = 'content-container';
 
     const categories = ['site', 'programa'];
-
-    const descriptionBox = document.createElement('div');
-    descriptionBox.className = 'description-box';
-    contentContainer.appendChild(descriptionBox);
-
     for (const category of categories) {
         const categoryRef = ref(storage, category);
         const list = await listAll(categoryRef);
-
+        window.scrollTo(0, 0);
         if (list.items.length > 0) {
             for (const itemRef of list.items) {
                 const box = document.createElement('div');
@@ -30,41 +25,58 @@ async function loadDynamicContent() {
 
                 const fileName = itemRef.name.split('.').slice(0, -1).join('.');
 
+                const contentText = document.createElement('div');
+                contentText.className = 'content-text';
+
                 const title = document.createElement('h3');
                 title.textContent = fileName;
-                box.appendChild(title);
+
+                const gitHubRef = ref(storage, `git/${fileName}.txt`);
+                try {
+                    const gitHubURL = await getDownloadURL(gitHubRef);
+                    const response = await fetch(gitHubURL);
+
+                    if (response.ok) {
+                        const gitHubLink = await response.text();
+                        const gitHubIcon = document.createElement('a');
+                        gitHubIcon.href = gitHubLink.trim();
+                        gitHubIcon.target = '_blank';
+                        gitHubIcon.innerHTML = '<i class="fab fa-github"></i>';
+                        gitHubIcon.className = 'github-icon';
+
+                        title.appendChild(gitHubIcon);
+                    }
+                } catch (error) {
+                    console.error("Erro ao carregar o link do GitHub:", error);
+                }
+
+                contentText.appendChild(title);
+
+                if (category === 'programa') {
+                    const logoRef = ref(storage, `logo/${fileName}.png`);
+                    try {
+                        const logoURL = await getDownloadURL(logoRef);
+                        const logoImage = document.createElement('img');
+                        logoImage.src = logoURL;
+                        logoImage.alt = `Logo de ${fileName}`;
+                        logoImage.className = 'project-logo';
+
+                        contentText.appendChild(logoImage);
+                    } catch (error) {
+                        console.error("Erro ao carregar a logo:", error);
+                    }
+                }
 
                 const descriptionRef = ref(storage, `Info/${fileName}.txt`);
-                
                 try {
                     const descriptionURL = await getDownloadURL(descriptionRef);
                     const response = await fetch(descriptionURL);
-                    
+
                     if (response.ok) {
                         const descriptionText = await response.text();
-
-                        box.addEventListener("mouseenter", () => {
-                            descriptionBox.textContent = descriptionText;
-                            descriptionBox.style.display = "block";
-                        
-                            const boxRect = box.getBoundingClientRect();
-                            descriptionBox.style.top = `${boxRect.top + window.scrollY}px`;
-                            descriptionBox.style.left = `${boxRect.right + 10}px`;
-                        });
-                        
-                        box.addEventListener("mouseleave", () => {
-                            setTimeout(() => {
-                                if (!descriptionBox.matches(':hover')) {
-                                    descriptionBox.style.display = "none";
-                                }
-                            }, 100);
-                        });
-                        
-                        descriptionBox.addEventListener("mouseleave", () => {
-                            descriptionBox.style.display = "none";
-                        });
-                    } else {
-                        console.error(`Failed to fetch description for ${fileName}.txt`);
+                        const descriptionParagraph = document.createElement('p');
+                        descriptionParagraph.textContent = descriptionText;
+                        contentText.appendChild(descriptionParagraph);
                     }
                 } catch (error) {
                     console.error("Erro ao carregar a descrição:", error);
@@ -85,37 +97,21 @@ async function loadDynamicContent() {
                     visitButton.onclick = () => window.open(linkText1, '_blank');
 
                     box.appendChild(sitePreview);
+                    box.appendChild(contentText);
                     box.appendChild(visitButton);
+                    window.scrollTo(0, 0);
 
                 } else if (category === 'programa') {
-                    const programContent = document.createElement('div');
-                    programContent.className = 'program-content';
+                    const downloadButton = document.createElement('button');
+                    downloadButton.textContent = 'Baixar Programa';
+                    downloadButton.className = 'download-button';
+                    downloadButton.onclick = async () => {
+                        const zipURL = await getDownloadURL(ref(storage, `programa/${fileName}.zip`));
+                        window.open(zipURL, '_blank');
+                    };
 
-                    const logoRef = ref(storage, `logo/${fileName}.png`);
-                    try {
-                        const logoURL = await getDownloadURL(logoRef);
-                        const logoImage = document.createElement('img');
-                        logoImage.src = logoURL;
-                        logoImage.alt = `Logo de ${fileName}`;
-                        logoImage.className = 'project-logo';
-                        programContent.appendChild(logoImage);
-                    } catch (error) {
-                        console.error("Erro ao carregar a logo:", error);
-                    }
-
-                    const zipRef = ref(storage, `programa/${fileName}.zip`);
-                    try {
-                        const downloadURL = await getDownloadURL(zipRef);
-                        const downloadButton = document.createElement('button');
-                        downloadButton.textContent = 'Baixar Programa';
-                        downloadButton.className = 'download-button';
-                        downloadButton.onclick = () => window.open(downloadURL, '_blank');
-                        programContent.appendChild(downloadButton);
-                    } catch (error) {
-                        console.error("Arquivo .zip não encontrado para download:", error);
-                    }
-
-                    box.appendChild(programContent);
+                    box.appendChild(contentText);
+                    box.appendChild(downloadButton);
                 }
 
                 contentContainer.appendChild(box);
@@ -124,4 +120,6 @@ async function loadDynamicContent() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", loadDynamicContent);
+document.addEventListener("DOMContentLoaded", () => {
+    loadDynamicContent();
+});

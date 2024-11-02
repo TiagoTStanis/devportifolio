@@ -36,32 +36,57 @@
         </nav>
     </header>
 
-    <section id="home" class="section-home">
-        <video autoplay loop playsinline class="background-video" id="backgroundVideo">
-            <source src="img/apresentacaoHome.mp4" type="video/mp4">
-            Seu navegador não suporta vídeos em HTML5.
-        </video>
-        <div class="container">
-            <h1>Tiago Torres Stanis</h1>
-            <p>Analista de TI | Developer</p>
-            <a href="#Project" class="btn">Veja Meus Projetos</a>
-            <button id="muteToggleButton" class="btn">Desativar Som</button>
+    <section id="home" class="section-home fade-exit">
+        <div id="videoContainer" class="video-container">
+            <video autoplay loop playsinline class="background-video" id="backgroundVideo">
+                <source src="img/apresentacaoHome.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos em HTML5.
+            </video>
             <button id="playPauseButton" class="play-pause-btn"><i class="fas fa-play"></i></button>
-        </div>        
+        </div>
+        <div class="container">
+            <h1 class="typing-effect">Tiago Torres Stanis</h1>
+            <p>Analista de TI | Developer</p>
+            <div class="button-group">
+                <a href="#Project" class="btn">Projetos</a>
+                <button id="muteToggleButton" class="btn">Desativar Som</button>
+            </div>
+            <div class="icon-container">
+                <a href="https://github.com/TiagoTStanis/devportifolio" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/tiago-torres-stanis-3728a3196/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+
+
     </section>
 
-    <section id="about" class="section-about">
+    <section id="about" class="section-about fade-exit">
         <div class="container">
             <h2>Sobre mim</h2>
-            <p>Sou um profissional apaixonado por programação, com habilidades em Powershell, C#,
-                Java, Python, PHP, JavaScript, HTML5 e CSS3 especialmente na automatização de processos. Minha busca
-                constante por aperfeiçoamento me leva a estudar e dominar novas linguagens de programação, sempre
-                visando entregar soluções eficazes e inovadoras. Estou comprometido em ampliar meu
-                repertório de habilidades e contribuir de forma significativa para projetos desafiadores.</p>
+            <p>Desde criança, sempre fui fascinado por tecnologia. Essa paixão natural me levou a explorar e aprender
+                programação desde cedo, o que abriu caminho para uma carreira que já soma mais de seis anos na área de
+                informática. Ao longo dessa trajetória, adquiri experiência em suporte técnico, infraestrutura e
+                desenvolvimento de soluções personalizadas, sempre com a intenção de transformar problemas em
+                oportunidades de inovação.<br/><br/>
+
+                Atualmente, estou focado em aprimorar minhas habilidades no desenvolvimento de software, buscando me
+                especializar em áreas de ponta e aplicar minhas capacidades em projetos desafiadores. Tenho trabalhado
+                em projetos que abrangem desde reconhecimento facial em Python até interfaces de usuário dinâmicas e
+                responsivas, sempre valorizando a qualidade e a eficiência. Além disso, minha experiência prática com
+                plataformas como Firebase e tecnologias modernas me permite entregar soluções versáteis e robustas.<br/><br/>
+
+                Minha meta é continuar evoluindo na área de desenvolvimento, unindo minha curiosidade e paixão por
+                aprender com a experiência adquirida ao longo dos anos, para oferecer contribuições relevantes e
+                duradouras no campo da tecnologia. Você pode conferir alguns dos meus projetos e acompanhá-los em tempo
+                real no meu GitHub. <a href="https://github.com/TiagoTStanis" target="_blank"><i class="fab fa-github"></i></a></p>
         </div>
     </section>
 
-    <section id="Project" class="dynamic-content-section">
+    <section id="Project" class="dynamic-content-section fade-exit">
         <div class="container">
             <h2>Projeto</h2>
             <div class="recruiter-message">
@@ -85,12 +110,11 @@
                     desenvolvimento contínuo.</p>
             </div>
 
-
             <div id="contentContainer"></div>
         </div>
     </section>
 
-    <section id="experience" class="section-experience">
+    <section id="experience" class="section-experience fade-exit">
         <div class="container">
             <h2>Experiência</h2>
 
@@ -114,7 +138,8 @@
             <div class="experience-item">
                 <h3>Cartório do Jabaquara - 42º Registro Civil</h3>
                 <p><strong>Estagiário de TI</strong> | Novembro de 2020 - Agosto de 2021</p>
-                <p>Suporte N1 e N2 aos funcionários no Windows, manutenção e programação em rotinas de impressoras térmicas e
+                <p>Suporte N1 e N2 aos funcionários no Windows, manutenção e programação em rotinas de impressoras
+                    térmicas e
                     matriciais, criação de rotinas de troubleshooting para resolução de problemas das impressoras com
                     SO.</p>
             </div>
@@ -146,17 +171,18 @@
         <div class="container">
             <h2>Contato</h2>
             <div id="contact-container">
-                <p><a href="mailto:ttstanis@outlook.com"><i class="fas fa-envelope"></i> ttstanis@outlook.com</a></p>
-                <p><a href="https://wa.me/5511969006891"><i class="fab fa-whatsapp"></i> (11) 96900-6891</a></p>
+                <p><a href="mailto:ttstanis@outlook.com"><i class="fas fa-envelope"></i> ttstanis@outlook.com </a>|</p>
+                <p><a href="https://wa.me/5511969006891"><i class="fab fa-whatsapp"></i> (11) 96900-6891 </a>|</p>
                 <p><a href="https://www.linkedin.com/in/tiago-torres-stanis-3728a3196" target="_blank"><i
-                            class="fab fa-linkedin"></i> Tiago Torres Stanis</a></p>
-                <p><a href="https://github.com/TiagoTStanis" target="_blank"><i class="fab fa-github"></i>
-                        TiagoTStanis</a>
-                </p>
+                            class="fab fa-linkedin"></i> Tiago Torres Stanis </a>|</p>
+                <p><a href="https://github.com/TiagoTStanis" target="_blank"><i
+                            class="fab fa-github"></i>TiagoTStanis</a></p>
             </div>
         </div>
     </footer>
-
+    <a
+        style="text-decoration: underline; display: block; text-align: center; margin-top: 20px; margin-bottom: 20px; font-size: 12px;  color: #007bff;">©
+        2024 Tiago Torres Stanis. Todos os direitos reservados.</a>
     <script type="module" src="JS/conectFirebase.js"></script>
     <script src="JS/index.js"></script>
 </body>
